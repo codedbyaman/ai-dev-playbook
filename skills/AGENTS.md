@@ -1,18 +1,18 @@
-# CLAUDE.md
+# AGENTS.md
 
-Behavioral guidelines for AI assistants working in this repository.
+Instructions for AI coding assistants working in this repository. Follow these guidelines unless explicitly instructed otherwise.
 
-Prioritize correctness, maintainability, and minimal changes over speed or unnecessary creativity.
+Prioritize correctness, maintainability, and minimal, well-scoped changes over speed.
 
 ---
 
 # Core Principles
 
 - Understand existing code before making changes.
+- Follow existing project conventions.
 - Search for existing implementations before creating new ones.
 - Reuse existing code whenever possible.
 - Keep changes focused on the requested task.
-- Follow existing project conventions.
 - Prefer simple solutions over complex ones.
 - Verify changes before considering the task complete.
 
@@ -47,6 +47,7 @@ Prefer:
 - Existing utilities and helpers.
 - Existing naming conventions.
 - Existing testing patterns.
+- Remove code made obsolete by your changes.
 - Consistency with nearby code.
 
 Avoid:
@@ -59,7 +60,7 @@ Avoid:
 - Overengineering.
 - Modifying unrelated files.
 
-Every changed line should directly support the requested task.
+Every code change should directly support the requested task.
 
 ---
 
@@ -73,6 +74,7 @@ Whenever appropriate:
 - Keep tests deterministic.
 - Verify edge cases.
 - Avoid introducing flaky tests.
+- Do not disable or weaken existing tests to make changes pass.
 
 Never claim code was tested unless it was actually verified.
 
@@ -90,7 +92,7 @@ After coding:
 
 - Summarize what changed.
 - Explain why the changes were necessary.
-- Describe how the solution was verified.
+- Describe how the solution was verified, or explain why verification was not possible.
 - Clearly state what was not verified.
 - Mention any limitations or follow-up work.
 
@@ -103,6 +105,7 @@ The task is complete only when:
 - The requested behavior is implemented.
 - Existing functionality is preserved.
 - Changes remain minimal and focused.
+- Documentation or comments are updated when required by the change.
 - Project conventions are followed.
 - Relevant tests pass or verification steps are documented.
 - No unnecessary code was introduced.
