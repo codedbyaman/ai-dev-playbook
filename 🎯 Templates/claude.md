@@ -1,26 +1,19 @@
-# CLAUDE.md Template
+# CLAUDE.md
 
-A reusable project-level `CLAUDE.md` for software engineering repositories.
+Behavioral guidelines for AI assistants working in this repository.
 
-Copy this file into the root of your project and customize it as needed.
-
----
-
-# Project Guidelines
-
-You are working in an existing software project.
-
-Prioritize correctness, maintainability, and minimal changes over speed.
+Prioritize correctness, maintainability, and minimal changes over speed or unnecessary creativity.
 
 ---
 
 # Core Principles
 
 - Understand existing code before making changes.
-- Reuse existing implementations whenever possible.
+- Search for existing implementations before creating new ones.
+- Reuse existing code whenever possible.
 - Keep changes focused on the requested task.
-- Avoid unnecessary refactoring.
 - Follow existing project conventions.
+- Prefer simple solutions over complex ones.
 - Verify changes before considering the task complete.
 
 ---
@@ -29,13 +22,19 @@ Prioritize correctness, maintainability, and minimal changes over speed.
 
 Always:
 
-- Read surrounding files.
-- Understand current architecture.
-- State assumptions.
-- Ask questions if requirements are unclear.
-- Explain tradeoffs when multiple solutions exist.
+- Read the surrounding code and understand existing patterns.
+- Understand the current architecture before making changes.
+- State assumptions explicitly.
+- Ask clarifying questions when requirements are ambiguous.
+- Explain tradeoffs when multiple approaches are reasonable.
+- Recommend the simplest solution that satisfies the requirements.
 
-Never invent APIs, project structure, or architecture.
+Never:
+
+- Invent APIs.
+- Invent project structure.
+- Invent architecture.
+- Assume behavior without evidence from the codebase.
 
 ---
 
@@ -43,19 +42,24 @@ Never invent APIs, project structure, or architecture.
 
 Prefer:
 
-- Small commits
-- Minimal diffs
-- Existing utilities
-- Existing naming conventions
-- Existing testing patterns
+- Small, focused changes.
+- Minimal diffs.
+- Existing utilities and helpers.
+- Existing naming conventions.
+- Existing testing patterns.
+- Consistency with nearby code.
 
 Avoid:
 
-- Premature optimization
-- Duplicate implementations
-- Unrelated refactoring
-- Formatting-only changes
-- Overengineering
+- Premature optimization.
+- Duplicate implementations.
+- Unnecessary abstractions.
+- Unrelated refactoring.
+- Formatting-only changes.
+- Overengineering.
+- Modifying unrelated files.
+
+Every changed line should directly support the requested task.
 
 ---
 
@@ -63,11 +67,14 @@ Avoid:
 
 Whenever appropriate:
 
-- Update existing tests.
-- Add new tests only when valuable.
-- Keep tests deterministic.
+- Update existing tests instead of creating duplicates.
+- Add new tests only when they provide value.
 - Reuse existing test utilities.
+- Keep tests deterministic.
 - Verify edge cases.
+- Avoid introducing flaky tests.
+
+Never claim code was tested unless it was actually verified.
 
 ---
 
@@ -77,15 +84,15 @@ Before coding:
 
 - Explain assumptions.
 - Mention potential risks.
+- Highlight any unclear requirements.
 
 After coding:
 
-- Summarize changes.
-- Explain why they were made.
-- Describe verification steps.
-- Mention any limitations.
-
-Never claim code has been tested unless it has actually been verified.
+- Summarize what changed.
+- Explain why the changes were necessary.
+- Describe how the solution was verified.
+- Clearly state what was not verified.
+- Mention any limitations or follow-up work.
 
 ---
 
@@ -93,8 +100,10 @@ Never claim code has been tested unless it has actually been verified.
 
 The task is complete only when:
 
-- Requested behavior is implemented.
+- The requested behavior is implemented.
 - Existing functionality is preserved.
-- Changes remain minimal.
+- Changes remain minimal and focused.
 - Project conventions are followed.
 - Relevant tests pass or verification steps are documented.
+- No unnecessary code was introduced.
+- No unused imports or dead code remain because of the change.
